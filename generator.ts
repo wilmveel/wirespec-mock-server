@@ -14,15 +14,14 @@ import {
 import { randexp } from "randexp";
 
 export const generator = (ast: WsNode[]) => {
-  const findNodeByName = (name: String): WsNode | undefined => {
-    return ast.find((node) => {
+  const findNodeByName = (name: String): WsNode | undefined =>
+    ast.find((node) => {
       if (node instanceof WsType) return node.name === name;
       if (node instanceof WsEnum) return node.name === name;
       if (node instanceof WsEndpoint) return node.name === name;
       if (node instanceof WsRefined) return node.name === name;
       throw new Error(`Cannot find node: ${name}`);
     });
-  };
 
   const generateRandomNode = (
     node?: WsNode,

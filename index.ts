@@ -30,22 +30,19 @@ const handler =
     }
   };
 
-const createPath = (enpoint: WsEndpoint) => {
-  return (
-    "/" +
-    enpoint.path
-      .map((it: WsSegment) => {
-        if (it instanceof WsLiteral) {
-          return it.value;
-        }
-        if (it instanceof WsParam) {
-          return `:${it.identifier.value}`;
-        }
-        throw new Error("Cannot map path");
-      })
-      .join("/")
-  );
-};
+const createPath = (enpoint: WsEndpoint) =>
+  "/" +
+  enpoint.path
+    .map((it: WsSegment) => {
+      if (it instanceof WsLiteral) {
+        return it.value;
+      }
+      if (it instanceof WsParam) {
+        return `:${it.identifier.value}`;
+      }
+      throw new Error("Cannot map path");
+    })
+    .join("/");
 
 (ast.filter((it) => it instanceof WsEndpoint) as WsEndpoint[]).forEach(
   (it: WsEndpoint) => {
