@@ -1,7 +1,7 @@
 import fs from 'fs'
 import express, {Request, Response} from 'express';
-
 import {Nullable, OpenApiV3, WsContent, WsEndpoint, WsLiteral, WsParam, WsSegment} from '@flock/wirespec'
+
 import {generator} from './generator'
 
 const openapi = fs.readFileSync('petstorev3.json')
