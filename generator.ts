@@ -9,8 +9,6 @@ import {
 
 import {randexp} from 'randexp'
 
-randexp
-
 export const generator = (ast:WsNode[]) => {
 
     const findNodeByName = (name: String): WsNode | undefined => {
@@ -56,7 +54,7 @@ export const generator = (ast:WsNode[]) => {
 
             }
             default:
-                throw new Error(`Cannot genrate random reference`)
+                throw new Error(`Cannot generate random reference`)
         }
     }
 
